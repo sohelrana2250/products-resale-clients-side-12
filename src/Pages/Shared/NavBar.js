@@ -6,7 +6,7 @@ const NavBar = () => {
     const menuItem = <React.Fragment>
         <li><Link to='/'>Home</Link></li>
 
-        <li><Link to=''>Apointment</Link></li>
+        <li><Link to='/'>Details</Link></li>
         <li><Link>About</Link></li>
         <li><Link>Review</Link></li>
         <div className="avatar mr-3">
