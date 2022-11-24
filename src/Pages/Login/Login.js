@@ -1,14 +1,21 @@
 import React, { useContext, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 const Login = () => {
 
     const { Login } = useContext(AuthContext);
     const [login, setLogin] = useState(false);
-
+    const [loginError, setError] = useState('')
+    let navigate = useNavigate();
+    let location = useLocation();
 
     const { register, formState: { errors }, handleSubmit } = useForm();
+    const notify = () => toast('Successfully-Login.');
+
+    let from = location.state?.from?.pathname || "/";
+
 
     const handelLogin = (data) => {
         console.log(data);
@@ -16,9 +23,13 @@ const Login = () => {
 
             const user = result.user;
             console.log(user);
+            setError('');
             setLogin(true);
+            navigate(from, { replace: true });
+
         }).catch((error) => {
-            console.log(error.messsage)
+            //console.log(error.messsage)
+            setError(error.messsage)
         })
     }
     return (
@@ -46,13 +57,14 @@ const Login = () => {
 
                     </div>
 
-                    <input className='btn btn-accent w-full mt-3' value='Login' type="submit" />
+                    <input onClick={notify} className='btn btn-accent w-full mt-3' value='Login' type="submit" />
+                    <Toaster />
                 </form>
                 <div>
                     {
                         login && <p className='text-3xl text-danger text-center'>Successfully Login</p>
                     }
-                    {/* {loginError && <p className='text-3xl text-danger text-center'>{loginError}</p>} */}
+                    {loginError && <p className='text-3xl text-danger text-center'>{loginError}</p>}
                 </div>
                 <p>new to doctors prolat <Link to='/singup' className='text-secondary'>Create New Account</Link></p>
                 <div className="divider">OR</div>

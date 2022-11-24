@@ -29,7 +29,7 @@ const NavBar = () => {
 
 
     const menuItem = <React.Fragment>
-        <p>{user?.photoURL}</p>
+        <li className='font-bold text-rose-600 text-xl'><Link>{user?.photoURL}</Link></li>
         <li><Link to='/'>Home</Link></li>
 
 

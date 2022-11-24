@@ -2,9 +2,14 @@ import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
+
+
+
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     const { createUser, profileUpdate } = useContext(AuthContext);
+    const notify = () => toast('Successfully-Register');
 
     const handelSingUp = (data) => {
 
@@ -87,8 +92,8 @@ const Register = () => {
 
                     </div>
 
-                    <input className='btn btn-accent w-full mt-6' value='SingUp' type="submit" />
-
+                    <input onClick={notify} className='btn btn-accent w-full mt-6' value='SingUp' type="submit" />
+                    <Toaster />
                 </form>
 
                 <p>Phone-Resale-Zone <Link to='/login' className='text-secondary'>Login </Link></p>
