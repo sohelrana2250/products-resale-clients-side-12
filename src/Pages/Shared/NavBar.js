@@ -1,14 +1,65 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../context/AuthProvider';
+
 
 const NavBar = () => {
 
+    const { user, LogOut } = useContext(AuthContext);
+
+
+    const handelLogOut = () => {
+        LogOut().then(() => {
+
+
+        }).catch((error) => {
+
+            console.log(error.message)
+        })
+
+
+    }
+
+
+
+
+
+
+
+
+
     const menuItem = <React.Fragment>
+        <p>{user?.photoURL}</p>
         <li><Link to='/'>Home</Link></li>
 
-        <li><Link to='/'>Details</Link></li>
-        <li><Link>About</Link></li>
-        <li><Link>Review</Link></li>
+
+
+        {user?.photoURL === 'Saler' && <>
+            <li><Link> AddProduct</Link></li>
+            <li><Link> My Product</Link></li>
+            <li><Link> my Buyer</Link></li>
+        </>}
+
+        {
+            user?.photoURL === 'Beyer' && <>
+                <li><Link>My Order</Link></li>
+                <li><Link>Wish List</Link></li>
+
+
+            </>
+        }
+
+
+
+
+        {
+            user?.email ? <>
+                <li ><Link onClick={handelLogOut}> LogOut</Link></li>
+            </> : <>
+                <li><Link to='/login'>Login</Link></li>
+                <li><Link to='/singup'>singup</Link></li>
+            </>
+        }
         <div className="avatar mr-3">
             <div className="w-14 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                 <img src="https://placeimg.com/192/192/people" alt='' />
