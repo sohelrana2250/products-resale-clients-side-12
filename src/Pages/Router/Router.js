@@ -5,6 +5,9 @@ import PhoneCategoryDetails from "../Home/PhoneCategoryDetails/PhoneCategoryDeta
 import Register from "../Register/Register";
 import Login from "../Login/Login"
 import PrivateRouter from "./PrivateRouter";
+import Orders from "../BuyerOrder/Orders";
+import AddProduct from "../AddProduct/AddProduct";
+import MyProducts from "../MyProduct/MyProducts";
 
 export const router = createBrowserRouter([
 
@@ -25,6 +28,18 @@ export const router = createBrowserRouter([
                 element: <PrivateRouter><PhoneCategoryDetails></PhoneCategoryDetails></PrivateRouter>,
                 loader: (props) => fetch(`http://localhost:5010/allPhoneDeails/${props.params.id}`)
 
+            },
+            {
+                path: '/buyerOrser',
+                element: <Orders></Orders>
+            },
+            {
+                path: '/addProduct',
+                element: <AddProduct></AddProduct>
+            },
+            {
+                path: '/myProduct',
+                element: <MyProducts></MyProducts>
             }
         ]
     }

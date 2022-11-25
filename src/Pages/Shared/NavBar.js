@@ -35,14 +35,14 @@ const NavBar = () => {
 
 
         {user?.photoURL === 'Saler' && <>
-            <li><Link> AddProduct</Link></li>
-            <li><Link> My Product</Link></li>
+            <li><Link to='/addProduct'> AddProduct</Link></li>
+            <li><Link to='/myProduct'> My Product</Link></li>
             <li><Link> my Buyer</Link></li>
         </>}
 
         {
             user?.photoURL === 'Beyer' && <>
-                <li><Link>My Order</Link></li>
+                <li><Link to='/buyerOrser'>My Order</Link></li>
                 <li><Link>Wish List</Link></li>
 
 
