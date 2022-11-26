@@ -8,12 +8,15 @@ import PrivateRouter from "./PrivateRouter";
 import Orders from "../BuyerOrder/Orders";
 import AddProduct from "../AddProduct/AddProduct";
 import MyProducts from "../MyProduct/MyProducts";
+import Payment from "../Payment/Payment";
+import DisplayError from "../Shared/DisplayError";
 
 export const router = createBrowserRouter([
 
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <DisplayError></DisplayError>,
         children: [
             { path: '/', element: <Home></Home> },
             {
@@ -40,6 +43,11 @@ export const router = createBrowserRouter([
             {
                 path: '/myProduct',
                 element: <MyProducts></MyProducts>
+            },
+            {
+                path: '/payment/:id',
+                element: <Payment></Payment>,
+                loader: (props) => fetch(`http://localhost:5010/booking/${props.params.id}`)
             }
         ]
     }
