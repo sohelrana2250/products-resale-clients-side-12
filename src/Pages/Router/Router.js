@@ -10,6 +10,11 @@ import AddProduct from "../AddProduct/AddProduct";
 import MyProducts from "../MyProduct/MyProducts";
 import Payment from "../Payment/Payment";
 import DisplayError from "../Shared/DisplayError";
+import Dashboard from "../DashBoard/Dashboard";
+import DashBoardLayout from "../../Layout/DashBoardLayout";
+import AllData from "../DashBoard/AllData/AllData";
+import AllUsers from "../DashBoard/AllUsers/AllUsers";
+
 
 export const router = createBrowserRouter([
 
@@ -48,6 +53,22 @@ export const router = createBrowserRouter([
                 path: '/payment/:id',
                 element: <Payment></Payment>,
                 loader: (props) => fetch(`http://localhost:5010/booking/${props.params.id}`)
+            }
+        ]
+    },
+    {
+        path: '/dashboard',
+        element: <DashBoardLayout></DashBoardLayout>,
+        errorElement: <DisplayError></DisplayError>,
+        children: [
+            {
+                path: '/dashboard',
+
+                element: <AllData></AllData>
+            },
+            {
+                path: '/dashboard/allUsers',
+                element: <AllUsers></AllUsers>
             }
         ]
     }

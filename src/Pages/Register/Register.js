@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -8,8 +8,9 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
-    const { createUser, profileUpdate } = useContext(AuthContext);
+    const { createUser, profileUpdate, LogOut } = useContext(AuthContext);
     const notify = () => toast('Successfully-Register');
+    const navigate = useNavigate();
 
     const handelSingUp = (data) => {
 
@@ -19,7 +20,7 @@ const Register = () => {
 
             const user = result.user;
             console.log(user);
-            profileInformation(data.name, data.userCategory);
+            profileInformation(data.name, data.email, data.userCategory);
         }).catch((error) => {
             console.log(error.message);
         })
@@ -27,7 +28,7 @@ const Register = () => {
 
     }
 
-    const profileInformation = (profileName, userCategory) => {
+    const profileInformation = (profileName, email, userCategory) => {
 
         const profile = {
 
@@ -39,10 +40,53 @@ const Register = () => {
         console.log(profile);
 
         profileUpdate(profile).then(() => {
-            console.log('successfully-update')
+
+            saveUserInfo(profileName, email, userCategory)
+
         }).catch((error) => {
             console.log(error.message);
         })
+    }
+
+    const saveUserInfo = (name, email, userType) => {
+
+        const userInfo = { name, email, userType };
+
+        fetch('http://localhost:5010/users', {
+
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userInfo)
+        }).then((res) => res.json()).then((data) => {
+
+
+            if (data.acknowledged) {
+                alert('Successfully-Register')
+            }
+            console.log(data);
+            LogOut().then(() => {
+
+                navigate('/login');
+
+
+            }).catch((error) => {
+
+                console.error(error.message);
+            })
+
+
+
+        }).catch((error) => {
+
+            console.error(error.message);
+        })
+
+
+
+
+
     }
 
     return (
