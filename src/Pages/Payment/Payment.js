@@ -14,6 +14,31 @@ const Payment = () => {
 
     const booking = useLoaderData();
     const date = new Date();
+
+    console.log(booking.id);
+
+
+
+    const handelDeleteProduct = (id) => {
+
+
+        alert(id);
+        fetch(`http://localhost:5010/allPhoneDeails/${id}`, {
+
+            method: 'DELETE'
+        }).then((res) => res.json()).then((data) => {
+
+            console.log(data);
+
+        }).catch((error) => {
+            console.error(error.message);
+        })
+
+    }
+
+
+
+
     return (
         <div>
 
@@ -22,7 +47,7 @@ const Payment = () => {
             <p className='text-center text-2xl font-bold'>Please Pay {booking.price} for your Phone {date.toDateString()}{date.toTimeString()}</p>
             <div className='w-1/2 h-56 my-6 mx-auto card card-compact px-10 pt-10 bg-base-100 shadow-xl'>
                 <Elements stripe={stripePromise}>
-                    <CheckoutForm booking={booking} />
+                    <CheckoutForm booking={booking} handelDeleteProduct={handelDeleteProduct} />
                 </Elements>
 
             </div>

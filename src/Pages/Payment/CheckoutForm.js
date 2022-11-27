@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
-const CheckoutForm = ({ booking }) => {
+const CheckoutForm = ({ booking, handelDeleteProduct }) => {
     const [cardError, setCardError] = useState('');
     const [clientSecret, setClientSecret] = useState("");
     const [success, setSuccess] = useState('');
@@ -9,7 +9,7 @@ const CheckoutForm = ({ booking }) => {
 
     const stripe = useStripe();
     const elements = useElements();
-    const { _id, price, email, userName
+    const { _id, id, price, email, userName
     } = booking;
 
 
@@ -141,7 +141,7 @@ const CheckoutForm = ({ booking }) => {
                         },
                     }}
                 />
-                <button className='btn btn-sm btn-primary mt-4' type="submit"
+                <button onClick={() => handelDeleteProduct(id)} className='btn btn-sm btn-primary mt-4' type="submit"
                     disabled={!stripe || !clientSecret || processing}>
                     Pay
                 </button>
