@@ -20,7 +20,8 @@ My Project Name is Phone-Resale-Zone.this project client size and server side bo
 6. donnav variable used my server site which is the provide security ..... 
 7. Admin Panel which is the access special features
 8. Dashboard section and Report all infomation backend code handel node js
-9. varifacition user
+9. varifacition user.
+10. Add Production Section Exist and All User Report 
 
 # here is my  server site vercel link: https://b612-used-products-resale-server-side-mu.vercel.app/
 
