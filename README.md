@@ -4,6 +4,9 @@
 # https://b612-used-products-resale.web.app/
 here is my website link ....
 
+# Admin UserName : ansari@gmail.com
+# Password : 193-16-464
+
 
 # b6a11-service-review-server-side(Server site)
 My Project Name is Phone-Resale-Zone.this project client size and server side both are exist.Client size 3 category information exist and addcategory option exist .I have to be used my project private router,login page,Register Page,and Blog----> which is the involve question section ---> and Answer 
