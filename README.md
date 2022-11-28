@@ -40,7 +40,9 @@ My Project Name is Phone-Resale-Zone.this project client size and server side bo
 7.  Phone-Resale-Zone buyer and saller diffretly handel this erb side
 8.  Admin Panel some spacial access exist
 9. Craete Addmin Featurs exist.
-10. Saller and Buyer Report Handel
+10. Saller and Buyer Report Handel.
+11. Add Production Section Exist and All User Report .
+12. advertisement section exist
 
 
 
