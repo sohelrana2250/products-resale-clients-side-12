@@ -26,7 +26,7 @@ const DisplayDetails = ({ details, setSelectedData }) => {
                         {/* disabled={slots.length === 0} setTreatment(option)  */}
 
 
-                        <label onClick={() => setSelectedData(details)} htmlFor="booking-modal" className="btn btn-outline btn-accent">BUY!</label>
+                        <label onClick={() => setSelectedData(details)} htmlFor="booking-modal" className="btn btn-outline btn-accent">Booking!</label>
 
                     </div>
 

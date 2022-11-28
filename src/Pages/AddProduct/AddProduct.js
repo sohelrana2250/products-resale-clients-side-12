@@ -61,6 +61,7 @@ const AddProduct = () => {
         }).then((res) => res.json()).then((data) => {
 
             console.log(data);
+            alert('Add Successfully')
         }).catch((error) => {
             console.log(error.message);
         })
