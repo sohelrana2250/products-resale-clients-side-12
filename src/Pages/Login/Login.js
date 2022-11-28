@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 const Login = () => {
 
-    const { Login } = useContext(AuthContext);
+    const { Login, GoogleSingIn } = useContext(AuthContext);
     const [login, setLogin] = useState(false);
     const [loginError, setError] = useState('')
     let navigate = useNavigate();
@@ -32,6 +32,58 @@ const Login = () => {
             setError(error.messsage)
         })
     }
+
+    const handelGoogleSinIn = () => {
+
+        GoogleSingIn().then((result) => {
+
+            const user = result.user;
+            console.log(user);
+            const userInfo = {
+
+                name: user.displayName,
+                email: user.email,
+                userType: 'Beyer'
+            }
+
+            console.log(userInfo);
+
+            fetch('https://b612-used-products-resale-server-side-mu.vercel.app/users', {
+
+                method: 'POST', // or 'PUT'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(userInfo)
+            }).then((res) => res.json()).then((data) => {
+
+                console.log(data);
+
+                if (data.acknowledged) {
+                    alert('Successfully-Login');
+                }
+
+                setError('');
+                setLogin(true);
+                navigate(from, { replace: true });
+
+
+            }).catch((error) => {
+                console.error(error.message);
+                setError(error.message);
+            })
+
+
+
+
+
+        }).catch((error) => {
+            console.log(error.message);
+        })
+    }
+
+
+
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className='w-96 p-7'>
@@ -68,7 +120,7 @@ const Login = () => {
                 </div>
                 <p>new to doctors prolat <Link to='/singup' className='text-secondary'>Create New Account</Link></p>
                 <div className="divider">OR</div>
-                <button className='btn btn-outline w-full'>Continue With Google</button>
+                <button onClick={handelGoogleSinIn} className='btn btn-outline w-full'>Continue With Google</button>
             </div>
         </div>
     );

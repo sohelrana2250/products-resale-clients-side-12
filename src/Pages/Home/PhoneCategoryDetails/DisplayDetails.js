@@ -14,12 +14,26 @@ const DisplayDetails = ({ details, setSelectedData }) => {
                 <p className=' font-bold'>Use Year :{used_year}</p>
                 <p className=' font-bold'>Post Date :{post_date}</p>
                 <p className=' font-bold'>Post Date :{sallerName}</p>
+                <>
+                    <div className="card-actions justify-start">
 
-                <div className="card-actions justify-end">
+                        <label onClick={() => setSelectedData(details)} htmlFor="booking-modal2" className="btn btn-outline btn-accent">Report</label>
 
-                    {/* disabled={slots.length === 0} setTreatment(option)  */}
-                    <label onClick={() => setSelectedData(details)} htmlFor="booking-modal" className="btn btn-outline btn-accent">BUY!</label>
-                </div>
+                    </div>
+
+                    <div className="card-actions justify-end">
+
+                        {/* disabled={slots.length === 0} setTreatment(option)  */}
+
+
+                        <label onClick={() => setSelectedData(details)} htmlFor="booking-modal" className="btn btn-outline btn-accent">BUY!</label>
+
+                    </div>
+
+
+
+                </>
+
 
 
 

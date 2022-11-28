@@ -23,7 +23,7 @@ const Payment = () => {
 
 
         alert(id);
-        fetch(`http://localhost:5010/allPhoneDeails/${id}`, {
+        fetch(`https://b612-used-products-resale-server-side-mu.vercel.app/allPhoneDeails/${id}`, {
 
             method: 'DELETE'
         }).then((res) => res.json()).then((data) => {

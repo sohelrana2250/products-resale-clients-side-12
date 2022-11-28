@@ -29,7 +29,7 @@ const PhoneDisplayModal = ({ selectedData }) => {
 
         }
 
-        fetch('http://localhost:5010/booking', {
+        fetch('https://b612-used-products-resale-server-side-mu.vercel.app/booking', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',

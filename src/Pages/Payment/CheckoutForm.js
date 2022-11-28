@@ -15,7 +15,7 @@ const CheckoutForm = ({ booking, handelDeleteProduct }) => {
 
     useEffect(() => {
 
-        fetch("http://localhost:5010/create-payment-intent", {
+        fetch("https://b612-used-products-resale-server-side-mu.vercel.app/create-payment-intent", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ price }),
@@ -99,7 +99,7 @@ const CheckoutForm = ({ booking, handelDeleteProduct }) => {
             setTransactionId(paymentIntent.id);
             setProcessing(false);
 
-            fetch('http://localhost:5010/paymentReport', {
+            fetch('https://b612-used-products-resale-server-side-mu.vercel.app/paymentReport', {
 
                 method: 'POST', // or 'PUT'
                 headers: {

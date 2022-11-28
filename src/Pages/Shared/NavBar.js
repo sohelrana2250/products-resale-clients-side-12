@@ -20,6 +20,8 @@ const NavBar = () => {
 
     }
 
+    const tri = user?.photoURL && user?.emailVerified ? 'Buyer' : user?.photoURL
+
 
 
 
@@ -29,7 +31,7 @@ const NavBar = () => {
 
 
     const menuItem = <React.Fragment>
-        <li className='font-bold text-rose-600 text-xl'><Link>{user?.photoURL}</Link></li>
+        <li className='font-bold text-rose-600 text-xl'><Link>{tri}</Link></li>
         <li><Link to='/'>Home</Link></li>
 
 
@@ -38,13 +40,24 @@ const NavBar = () => {
             <li><Link to='/addProduct'> AddProduct</Link></li>
             <li><Link to='/myProduct'> My Product</Link></li>
             <li><Link> my Buyer</Link></li>
+            <li><Link to='/dashboard'>Dashboard</Link></li>
         </>}
 
         {
             user?.photoURL === 'Beyer' && <>
                 <li><Link to='/buyerOrser'>My Order</Link></li>
-                <li><Link>Wish List</Link></li>
+                <li><Link to=''>Wish List</Link></li>
+                <li><Link to='/dashboard'>Dashboard</Link></li>
 
+            </>
+        }
+
+        {
+            user?.emailVerified && <>
+
+                <li><Link to='/buyerOrser'>My Order</Link></li>
+                <li><Link to=''>Wish List</Link></li>
+                <li><Link to='/dashboard'>Dashboard</Link></li>
 
             </>
         }
@@ -55,10 +68,12 @@ const NavBar = () => {
         {
             user?.email ? <>
                 <li ><Link onClick={handelLogOut}> LogOut</Link></li>
-                <li><Link to='/dashboard'>Dashboard</Link></li>
+
             </> : <>
                 <li><Link to='/login'>Login</Link></li>
                 <li><Link to='/singup'>singup</Link></li>
+                <li><Link to='/blog'>Blog</Link></li>
+
 
             </>
         }

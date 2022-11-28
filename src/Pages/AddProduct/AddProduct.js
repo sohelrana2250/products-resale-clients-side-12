@@ -51,7 +51,7 @@ const AddProduct = () => {
 
     const addedPhoneData = (addPhone) => {
 
-        fetch('http://localhost:5010/allPhoneDeails', {
+        fetch('https://b612-used-products-resale-server-side-mu.vercel.app/allPhoneDeails', {
 
             method: 'POST', // or 'PUT'
             headers: {

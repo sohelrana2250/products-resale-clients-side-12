@@ -14,6 +14,12 @@ import Dashboard from "../DashBoard/Dashboard";
 import DashBoardLayout from "../../Layout/DashBoardLayout";
 import AllData from "../DashBoard/AllData/AllData";
 import AllUsers from "../DashBoard/AllUsers/AllUsers";
+import AllBuyer from "../DashBoard/AllBuyer/AllBuyer";
+import AllSeller from "../DashBoard/AllSaller/AllSeller";
+import Report from "../DashBoard/Report/Report";
+import Blog from "../Blog/Blog";
+
+
 
 
 export const router = createBrowserRouter([
@@ -34,7 +40,7 @@ export const router = createBrowserRouter([
             {
                 path: '/phonedeails/:id',
                 element: <PrivateRouter><PhoneCategoryDetails></PhoneCategoryDetails></PrivateRouter>,
-                loader: (props) => fetch(`http://localhost:5010/allPhoneDeails/${props.params.id}`)
+                loader: (props) => fetch(`https://b612-used-products-resale-server-side-mu.vercel.app/allPhoneDeails/${props.params.id}`)
 
             },
             {
@@ -52,8 +58,14 @@ export const router = createBrowserRouter([
             {
                 path: '/payment/:id',
                 element: <Payment></Payment>,
-                loader: (props) => fetch(`http://localhost:5010/booking/${props.params.id}`)
+                loader: (props) => fetch(`https://b612-used-products-resale-server-side-mu.vercel.app/booking/${props.params.id}`)
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
             }
+
+
         ]
     },
     {
@@ -69,6 +81,22 @@ export const router = createBrowserRouter([
             {
                 path: '/dashboard/allUsers',
                 element: <AllUsers></AllUsers>
+            },
+            {
+                path: '/dashboard/allBuyer',
+                element: <AllBuyer></AllBuyer>
+            },
+            {
+                path: '/dashboard/allSaller',
+                element: <AllSeller></AllSeller>
+            },
+            {
+                path: '/dashboard/mydata',
+                element: <Dashboard></Dashboard>
+            },
+            {
+                path: '/dashboard/report',
+                element: <Report></Report>
             }
         ]
     }

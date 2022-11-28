@@ -7,7 +7,7 @@ const MyProducts = () => {
 
     const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5010/MyProduct?email=${user?.email}`;
+    const url = `https://b612-used-products-resale-server-side-mu.vercel.app/MyProduct?email=${user?.email}`;
 
     const { data: myproduct = [], refetch } = useQuery({
 
@@ -29,7 +29,7 @@ const MyProducts = () => {
         const confirmation = window.confirm('Are You Sure .You want to Delete Product ' + id);
         if (confirmation) {
 
-            fetch(`http://localhost:5010/MyProduct/${id}`, {
+            fetch(`https://b612-used-products-resale-server-side-mu.vercel.app/MyProduct/${id}`, {
 
                 method: 'DELETE'
             }).then((res) => res.json()).then((data) => {

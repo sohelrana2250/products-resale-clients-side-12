@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
+
+import { AuthContext } from '../../context/AuthProvider';
+
 
 const MyProductDisplay = ({ product, count, handelDeleteProduct }) => {
 
+    const { setAdvertisement } = useContext(AuthContext);
+
     const { _id, img, location, name, orginal_price, resale_price, used_year, sallerName } = product;
+
+
     return (
         <tr>
             <th>{count + 1}</th>
@@ -20,7 +27,7 @@ const MyProductDisplay = ({ product, count, handelDeleteProduct }) => {
             <td>{resale_price}</td>
             <td>{used_year}</td>
             <td><button onClick={() => handelDeleteProduct(_id)} className='btn btn-outline btn-error'>Delete</button></td>
-            <td><button className='btn btn-outline btn-primary'>Advertisement</button></td>
+            <td><button onClick={() => setAdvertisement(product)} className='btn btn-outline btn-primary'>Advertisement</button></td>
 
         </tr>
     );

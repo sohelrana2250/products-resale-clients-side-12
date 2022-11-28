@@ -6,7 +6,7 @@ const PhoneCategory = () => {
     const { data: phoneCategory = [] } = useQuery({
 
         queryKey: ['phoneCategory'],
-        queryFn: () => fetch('http://localhost:5010/phoneCategory').then((res) => res.json())
+        queryFn: () => fetch('https://b612-used-products-resale-server-side-mu.vercel.app/phoneCategory').then((res) => res.json())
 
 
     })

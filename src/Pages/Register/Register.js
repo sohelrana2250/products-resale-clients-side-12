@@ -52,7 +52,7 @@ const Register = () => {
 
         const userInfo = { name, email, userType };
 
-        fetch('http://localhost:5010/users', {
+        fetch('https://b612-used-products-resale-server-side-mu.vercel.app/users', {
 
             method: 'POST', // or 'PUT'
             headers: {
