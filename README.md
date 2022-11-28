@@ -1,3 +1,35 @@
+
+# my web site name is Phone-Resale-Zone
+# https://b612-used-products-resale-server-side-mu.vercel.app/
+# https://b612-used-products-resale.web.app/
+here is my website link ....
+
+
+# b6a11-service-review-server-side(Server site)
+My Project Name is Phone-Resale-Zone.this project client size and server side both are exist.Client size 3 category information exist and addcategory option exist .I have to be used my project private router,login page,Register Page,and Blog----> which is the involve question section ---> and Answer 
+
+
+1. first of all i have to develop my server site 
+2. Then I was development by server side with node js.
+3. Then I was used my web site JWT Token ......which is the used secure taka provide client site to server site.
+4. mongo DB all data handel client site to server site with node js .
+5. CRUD Function All task run by server site then server side data provided client site.
+6. donnav variable used my server site which is the provide security ..... 
+7. Admin Panel which is the access special features
+8. Dashboard section and Report all infomation backend code handel node js
+9. varifacition user
+
+# here is my  server site vercel link: https://b612-used-products-resale-server-side-mu.vercel.app/
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
