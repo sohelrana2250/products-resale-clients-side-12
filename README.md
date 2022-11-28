@@ -23,6 +23,25 @@ My Project Name is Phone-Resale-Zone.this project client size and server side bo
 
 
 
+# https://b612-used-products-resale.firebaseapp.com/(Client Site)
+
+1. Here is my client site link :  https://b612-used-products-resale.firebaseapp.com
+
+2. Phone-Resale-Zone font-end site i have to used daisyui and tallwind css
+3.    My Web side developing part is javaScript, express js with server create,React Js font end  and Some  MOst of the time I have to used daisyui and tallwind css
+4. Firebase Authengation with logain page and Register page ----> 2 typs of login process exist  i) craete User ii) Login with-Google 
+
+5. Enviroment variable used my web site ..... with firebase security provide.
+6. private Router used All-Server  data access point ....... if Course details need you will login first.........  premimun access but private .
+7.  Phone-Resale-Zone buyer and saller diffretly handel this erb side
+8.  Admin Panel some spacial access exist
+9. Craete Addmin Featurs exist.
+10. Saller and Buyer Report Handel
+
+
+
+
+
 
 
 
