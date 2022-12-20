@@ -109,8 +109,8 @@ const Register = () => {
                             <span className="label-text">User Category</span>
                         </label>
                         <select name='userCategory'  {...register('userCategory', { required: "userCategory is required" })} className="select select-bordered w-full">
-                            <option>Saler</option>
-                            <option>Beyer</option>
+                            <option>Seller</option>
+                            <option>Buyer</option>
                         </select>
                         {errors.userCategory && <p role="alert">{errors.userCategory?.message}</p>}
                     </div>
